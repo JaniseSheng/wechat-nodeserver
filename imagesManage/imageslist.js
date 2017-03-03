@@ -7,8 +7,6 @@ const $sql = require('./imagessql.js');
 const path = require('path');
 const fs = require('fs');
 const imagemin = require('imagemin');
-const imageminMozjpeg = require('imagemin-mozjpeg');
-const imageminPngquant = require('imagemin-pngquant');
 
 //使用连接池
 const pool = mysql.createPool(config.mysql);
@@ -231,8 +229,9 @@ module.exports = {
 
 
     wechatAddImage: (req, res, next) => {
-        pool.getConnection((err, connection) => {
-            console.log(req);
+        res.json({
+            code: req.query,
+            msg: '查询ok'
         });
     },
 
